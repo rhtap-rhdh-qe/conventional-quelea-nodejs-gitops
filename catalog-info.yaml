@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: conventional-quelea-nodejs-gitops
+  description: This is GitOps manifest for conventional-quelea-nodejs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: conventional-quelea-nodejs
+    janus-idp.io/tekton: conventional-quelea-nodejs 
+    backstage.io/kubernetes-id: conventional-quelea-nodejs 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:conventional-quelea-nodejs

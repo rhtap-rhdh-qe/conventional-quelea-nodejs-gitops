@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: conventional-quelea-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: conventional-quelea-nodejs 
+  name: conventional-quelea-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: conventional-quelea-nodejs
+    weight: 100 
